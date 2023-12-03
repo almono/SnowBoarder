@@ -13,6 +13,7 @@ public class FinishLine : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             finishParticles.Play();
+            GetComponent<AudioSource>().Play();
             Invoke("RestartLevel", 1f);
         }
     }
