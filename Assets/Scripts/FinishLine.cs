@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    public ParticleSystem finishParticles;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);
+            finishParticles.Play();
+            Invoke("RestartLevel", 1f);
         }
+    }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 }
